@@ -1,0 +1,21 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "JSON Server 入门",
+            "content": "这是关于 JSON Server 的入门介绍"
+        },
+        {
+            "id": 2,
+            "title": "JSON Server 进阶",
+            "content": "深入了解 JSON Server 的高级用法"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "postId": 1,
+            "text": "很棒的入门文章！"
+        }
+    ]
+}
