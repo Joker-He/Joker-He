@@ -13,9 +13,9 @@ const {onFinishFailed , gotowhere } = useCommon()
 const formRef = ref<FormInstance>()
 const formState = reactive<FormState>({})
 const {code ,phone } = useValidate()
-const disabled = computed(()=>{
-    return phone.test(formState.phone) 
-})
+const disabled = computed(() => {
+    return phone.test(formState.phone || '');
+}); 
 
 const flag = ref<boolean>(false)
 watch(formState,(v:any)=>{
@@ -40,7 +40,7 @@ const onFinish = async  (value:FormState)=>{
     if(res.code==200){
         // 跳转 
         gotowhere('/pro')
-        localStorage.setItem('pro_phone',value.phone)
+        localStorage.setItem('pro_phone', value.phone || '')
         sessionStorage.setItem('pro_token',res.token)
     }
 }
@@ -61,7 +61,9 @@ const todosentCaptcha = async ()=>{
 }
 
 onMounted(()=>{
-    formState.phone = route.query.phone ? route.query.phone : localStorage.getItem('pro_phone')
+    formState.phone = typeof route.query.phone === 'string' 
+        ? route.query.phone 
+        : localStorage.getItem('pro_phone') || undefined;
 })
 
 
@@ -74,7 +76,7 @@ onMounted(()=>{
             ref="formRef"
             :model="formState"
             name="basic"
-            :label-col="{ span: 6 }"
+            :label-col="{ span: 4 }"
             :wrapper-col="{ span: 16 }"
             autocomplete="off"
             @finish="onFinish"
@@ -116,14 +118,14 @@ onMounted(()=>{
                 </a-row>
             </a-form-item>
 
-            <a-form-item class="lastitem" :wrapper-col="{ offset: 6, span: 16 }">
+            <a-form-item class="lastitem" :wrapper-col="{ offset: 4, span: 16 }">
                 <div class="alinks">
                     <router-link to="/reg" class="litem ">立即注册</router-link>
                     <router-link to="/findpass"  class="litem bg">找回密码</router-link>
                 </div>
             </a-form-item>
             
-            <a-form-item :wrapper-col="{ offset: 6, span: 16 }">
+            <a-form-item :wrapper-col="{ offset: 4, span: 16 }">
                 <a-button type="primary" html-type="submit" block>验证登录</a-button>
                 <a-button danger class="mt10"  @click="resetData" block>重置</a-button>
             </a-form-item>

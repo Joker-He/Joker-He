@@ -19,7 +19,7 @@ export interface FormState {
     account?: string;
     username?: string;
     password?: string;
-    phone?: string | undefined;
+    phone?: string;
     dbpass?:string;
     captcha?:string;
 }

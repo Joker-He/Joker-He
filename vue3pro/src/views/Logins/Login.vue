@@ -3,7 +3,9 @@
 import {ref} from 'vue'
 import LoginByAccount from './LoginByAccount.vue'
 import LoginByMobile from './LoginByMobile.vue'
-const videoSrc = ref('https://img-baofun.zhhainiao.com/market/semvideo/6ac24b3f50fda0b1a55f7ff25c6b62af_preview.mp4')
+
+import videoFile from '@/assets/images/loginbg.mp4'
+// const videoSrc = ref(videoFile)
 const activeKey = ref('account')
 
 </script>
@@ -11,7 +13,7 @@ const activeKey = ref('account')
 <template>
     <div class="lgbox">
         <video 
-            :src="videoSrc"
+            :src="videoFile"
             class="myvideo"
             muted
             loop
@@ -32,3 +34,22 @@ const activeKey = ref('account')
         </div>
     </div>
 </template>
+
+<style lang="scss" scoped>
+.lgbox {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 设置全屏高度 */
+  overflow: hidden; /* 防止内容溢出 */
+  .myvideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1920px; /* 固定宽度 */
+    height: 1080px; /* 固定高度 */
+    transform: translate(-50%, -50%); /* 居中显示 */
+    object-fit: none; /* 禁止缩放 */
+  }
+}
+
+</style>

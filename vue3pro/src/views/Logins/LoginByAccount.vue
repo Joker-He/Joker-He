@@ -5,7 +5,6 @@ import { useValidate } from '../../hooks/date/useValidate';
 import { FormState } from '../../utils/types';
 import type { FormInstance } from 'ant-design-vue';
 import { useRoute , useRouter } from 'vue-router';
-import { ShowFail } from '../../utils/message';
 import {Ajax} from '../../api/api'
 import {useCommon } from '../../hooks/common/useCommon'
 const route = useRoute()
@@ -17,7 +16,7 @@ const onFinish = async (value:FormState)=>{
     let res = await Ajax.todoLogin(value) as any;
     if(res.code==200){
         router.push({name:'pro'})
-        localStorage.setItem('pro_account',value.account)
+        localStorage.setItem('pro_account', value.account || '')
         sessionStorage.setItem('pro_token',res.token)
     }
 }
@@ -32,7 +31,9 @@ const resetData = ()=>{
 
 onMounted(()=>{
     console.log(route.query)
-    formState.account = route.query.username ? route.query.username : localStorage.getItem('pro_account')
+    formState.account = typeof route.query.username === 'string' 
+        ? route.query.username 
+        : localStorage.getItem('pro_account') || undefined;
 })
 </script>
 
@@ -43,11 +44,11 @@ onMounted(()=>{
             ref="formRef"
             :model="formState"
             name="basic"
-            :label-col="{ span: 8 }"
+            :label-col="{ span: 4 }"
             :wrapper-col="{ span: 16 }"
             autocomplete="off"
             @finish="onFinish"
-            @finishFailed="onFinishFailed('登录数据信息有误1111!')"
+            @finishFailed="onFinishFailed('登录数据信息有误!')"
         >
             <a-form-item
                 label="账号"
@@ -71,14 +72,14 @@ onMounted(()=>{
                 <a-input-password v-model:value="formState.password" />
             </a-form-item>
 
-            <a-form-item class="lastitem" :wrapper-col="{ offset: 8, span: 16 }">
+            <a-form-item class="lastitem" :wrapper-col="{ offset: 4, span: 16 }">
                 <div class="alinks">
                     <router-link to="/reg" class="litem ">立即注册</router-link>
                     <router-link to="/findpass"  class="litem bg">找回密码</router-link>
                 </div>
             </a-form-item>
 
-            <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
+            <a-form-item :wrapper-col="{ offset: 4, span: 16 }">
                 <a-button type="primary" html-type="submit" block>登录</a-button>
                 <a-button danger class="mt10"  @click="resetData" block>重置</a-button>
             </a-form-item>
