@@ -192,7 +192,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .lgbox {
-    ::v-deep .ant-form-item-required {
+    :deep .ant-form-item-required {
         color: #fff;
     }
 }

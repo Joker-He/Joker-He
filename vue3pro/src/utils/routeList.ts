@@ -252,44 +252,44 @@ export const routerList:any = [
             },
         ]
     },
-    {
-        path:'/routeset',
-        name:'routeset',
-        text:"路由管理",
-        role:1,
-        icon:markRaw(SettingOutlined),
-        component:()=>import('@/views/Set/SetRoute.vue'),
-        children:[
-            {
-                path:'/routeset',
-                name:'routeset',
-                text:"路由管理",
-                role:1,
-                icon:markRaw(SettingOutlined),
-                component:()=>import('@/views/Set/SetRoute.vue'),
-                children:[
-                    {
-                        path:'/routeset',
-                        name:'routeset',
-                        text:"路由管理",
-                        role:1,
-                        icon:markRaw(SettingOutlined),
-                        component:()=>import('@/views/Set/SetRoute.vue'),
-                        children:[
-                            {
-                                path:'/routeset',
-                                name:'routeset',
-                                text:"路由管理",
-                                role:1,
-                                icon:markRaw(SettingOutlined),
-                                component:()=>import('@/views/Set/SetRoute.vue'),
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]   
-    },
+    // {
+    //     path:'/routeset',
+    //     name:'routeset',
+    //     text:"路由管理",
+    //     role:1,
+    //     icon:markRaw(SettingOutlined),
+    //     component:()=>import('@/views/Set/SetRoute.vue'),
+    //     children:[
+    //         {
+    //             path:'/routeset',
+    //             name:'routeset',
+    //             text:"路由管理",
+    //             role:1,
+    //             icon:markRaw(SettingOutlined),
+    //             component:()=>import('@/views/Set/SetRoute.vue'),
+    //             children:[
+    //                 {
+    //                     path:'/routeset',
+    //                     name:'routeset',
+    //                     text:"路由管理",
+    //                     role:1,
+    //                     icon:markRaw(SettingOutlined),
+    //                     component:()=>import('@/views/Set/SetRoute.vue'),
+    //                     children:[
+    //                         {
+    //                             path:'/routeset',
+    //                             name:'routeset',
+    //                             text:"路由管理",
+    //                             role:1,
+    //                             icon:markRaw(SettingOutlined),
+    //                             component:()=>import('@/views/Set/SetRoute.vue'),
+    //                         }
+    //                     ]
+    //                 }
+    //             ]
+    //         }
+    //     ]   
+    // },
     {
         path:'/mine',
         name:'mine',

@@ -33,7 +33,7 @@ export const Ajax = {
 
     getuserinfo:()=>GET('/api/getuserinfo'),
 
-    uplodafile:(data:any)=>POST('/api/uplodafile',data ),
+    uploadfile:(data:any)=>POST('/api/uploadfile',data ),
 
     changeuserinfo:(data:any)=>POST('/api/changeuserinfo',data ),
 

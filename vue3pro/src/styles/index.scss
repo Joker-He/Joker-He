@@ -8,12 +8,12 @@ $base_color:#ff5f16;   // 主题色
 // 嵌套  
 // 函数  
 
-@import "animate.css";
-@import "common.scss";
-@import "mobile.scss";
-@import "fonts/iconfont.css";
-@import "swiper.min.css";   // 全局的swiper 样式 
-@import 'login.scss';
+@use "animate.css";
+@use "common.scss";
+@use "mobile.scss";
+@use "fonts/iconfont.css";
+@use "swiper.min.css";   // 全局的swiper 样式 
+@use 'login.scss';
 
 
 

@@ -3,8 +3,8 @@ import axios from 'axios'
 import { ShowFail, ShowLoading, ShowSuccess } from '../utils/message';
 import router from '../router'
 
-// export const baseURL = 'http://localhost:3000/'   // 本地接口  
-export const baseURL = 'http://81.69.235.62:3000/'   // 本地接口  
+export const baseURL = 'http://localhost:3000/'   // 本地接口  
+// export const baseURL = 'http://81.69.235.62:3000/'   // 本地接口  
 
 
 
